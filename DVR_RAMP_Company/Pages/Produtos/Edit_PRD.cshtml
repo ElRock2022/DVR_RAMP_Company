@@ -1,0 +1,50 @@
+﻿@page
+@model DVR_RAMP_Company.Pages.Produtos.Edit_PRDModel
+@{
+}
+
+
+
+<form method="post">
+    <input hidden asp-for="Produtos.Id" />
+    <div class=border p-3 mt-4>
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">EDITAR PRODUTO</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            NOME PRODUTO
+            <input asp-for="Produtos.PRD_Name" class="form-control" />
+            <span asp-validation-for="@Model.Produtos.PRD_Name" class="bg-danger text-warning "></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Produtos.PRD_Brand">  </label>
+                       @* não precisa fazer @Model.TB_Product.PRD_Brand etc.. como está  no modelo ele percebe*@
+            <input asp-for="Produtos.PRD_Brand" class="form-control" />
+            <span asp-validation-for="Produtos.PRD_Brand"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Produtos.PRD_SubBrand">  </label>
+            <input asp-for="Produtos.PRD_SubBrand" class="form-control" />
+            <span asp-validation-for="Produtos.PRD_SubBrand"></span>
+        </div>
+    </div>
+
+    <div class=border pt-1 mt-1>
+        <button type="submit" class="btn btn-outline-primary mt-3" style="width:100px;">EDITAR</button>
+        <div asp-validation-summary="All">  </div>
+    </div>
+
+    <div class="align-content-center alert-danger"
+         asp-validation-summary="All">
+    </div>
+</form>
+
+
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+	}
+}
+
